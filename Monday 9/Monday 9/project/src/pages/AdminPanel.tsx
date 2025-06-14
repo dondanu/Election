@@ -99,7 +99,7 @@ const AdminPanel = () => {
     }
   };
 
-  useEffect(() => {
+useEffect(() => {
   const fetchProvinces = async () => {
     const response = await fetch('http://localhost:8080/api/provinces');
     if (response.ok) {
@@ -108,7 +108,8 @@ const AdminPanel = () => {
     }
   };
   fetchProvinces();
-}, []);
+}, [setProvinces]);
+
 
 
 const handleAddProvince = async (name: string, districtCount: number) => {
@@ -121,6 +122,8 @@ const handleAddProvince = async (name: string, districtCount: number) => {
   if (response.ok) {
     const newProvince = await response.json();
     setProvinces((prev) => [...prev, newProvince]);
+  } else {
+    console.error('Failed to add province');
   }
 };
 
@@ -457,16 +460,11 @@ const handleDeleteProvince = async (id: number) => {
                         </div>
                       </div>
                     ))}
-                    
-                    {provinces.length < provinceCount && (
-                      <div className="border rounded-lg p-4 border-dashed">
-                        <form
-                          onSubmit={(e) => {
-                            e.preventDefault();
-                            const formData = new FormData(e.currentTarget);
-                            handleAddProvince(
-                              formData.get('name') as string,
-                              parseInt(formData.get('districtCount') as string)
+        </div>
+                        </div>
+                      </div>
+                    ))}
+                 parseInt(formData.get('districtCount') as string)
                             );
                             (e.target as HTMLFormElement).reset();
                           }}
