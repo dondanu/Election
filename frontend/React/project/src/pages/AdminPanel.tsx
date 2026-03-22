@@ -460,11 +460,16 @@ const handleDeleteProvince = async (id: number) => {
                         </div>
                       </div>
                     ))}
-        </div>
-                        </div>
-                      </div>
-                    ))}
-                 parseInt(formData.get('districtCount') as string)
+
+                    {provinces.length < provinceCount && (
+                      <div className="border rounded-lg p-4 border-dashed">
+                        <form
+                          onSubmit={(e) => {
+                            e.preventDefault();
+                            const formData = new FormData(e.currentTarget);
+                            handleAddProvince(
+                              formData.get('name') as string,
+                              parseInt(formData.get('districtCount') as string)
                             );
                             (e.target as HTMLFormElement).reset();
                           }}
