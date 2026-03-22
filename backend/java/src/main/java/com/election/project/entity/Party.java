@@ -13,13 +13,10 @@ import lombok.*;
 public class Party {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "party_id")
     private int partyId;
 
     @Column(name = "party_name", length = 40)
     private String partyName;
-
-    @ManyToOne
-    @JoinColumn(name = "election_id", referencedColumnName = "election_id")
-    private Election election;
 }

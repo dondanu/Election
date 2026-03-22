@@ -8,7 +8,7 @@ import lombok.*;
 @AllArgsConstructor
 @ToString
 public class DistrictDTO {
-    private int districtId;
-    private String districtName;
+    private int id;
+    private String name;
     private int provinceId;
 }

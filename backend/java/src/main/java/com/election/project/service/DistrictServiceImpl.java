@@ -22,20 +22,22 @@ public class DistrictServiceImpl implements DistrictService {
     private ProvinceRepository provinceRepository;
 
     private DistrictDTO mapToDTO(District district) {
-        return new DistrictDTO(
-                district.getDistrictId(),
-                district.getDistrictName(),
-                district.getProvince().getProvinceId()
-        );
+        DistrictDTO dto = new DistrictDTO();
+        dto.setId(district.getDistrictId());
+        dto.setName(district.getDistrictName());
+        dto.setProvinceId(district.getProvince() != null ? district.getProvince().getProvinceId() : 0);
+        return dto;
     }
 
     private District mapToEntity(DistrictDTO dto) {
-        Province province = provinceRepository.findById(dto.getProvinceId()).orElse(null);
-        return new District(
-                dto.getDistrictId(),
-                dto.getDistrictName(),
-                province
-        );
+        District district = new District();
+        district.setDistrictId(dto.getId());
+        district.setDistrictName(dto.getName());
+        if (dto.getProvinceId() > 0) {
+            Province province = provinceRepository.findById(dto.getProvinceId()).orElse(null);
+            district.setProvince(province);
+        }
+        return district;
     }
 
     @Override

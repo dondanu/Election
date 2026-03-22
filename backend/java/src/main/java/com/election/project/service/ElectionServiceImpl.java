@@ -17,11 +17,17 @@ public class ElectionServiceImpl implements ElectionService {
     private ElectionRepository electionRepository;
 
     private ElectionDTO mapToDTO(Election election) {
-        return new ElectionDTO(election.getElectionId(), election.getElectionYear());
+        ElectionDTO dto = new ElectionDTO();
+        dto.setId(election.getElectionId());
+        dto.setYear(election.getElectionYear());
+        return dto;
     }
 
     private Election mapToEntity(ElectionDTO dto) {
-        return new Election(dto.getElectionId(), dto.getElectionYear());
+        Election election = new Election();
+        election.setElectionId(dto.getId());
+        election.setElectionYear(dto.getYear());
+        return election;
     }
 
     @Override

@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Home, BarChart2, Info, Settings } from 'lucide-react';
+import { Home, BarChart2, Info, Settings, Zap } from 'lucide-react';
 
 const Navbar = () => {
   return (
@@ -29,6 +29,10 @@ const Navbar = () => {
             <Link to="/admin" className="px-3 py-2 rounded-md text-sm font-medium hover:bg-[#003366] flex items-center">
               <Settings className="h-5 w-5 mr-1" />
               Admin Panel
+            </Link>
+            <Link to="/api-test" className="px-3 py-2 rounded-md text-sm font-medium hover:bg-[#003366] flex items-center">
+              <Zap className="h-5 w-5 mr-1" />
+              API Test
             </Link>
           </div>
         </div>

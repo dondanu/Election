@@ -8,7 +8,6 @@ import lombok.*;
 @AllArgsConstructor
 @ToString
 public class PartyDTO {
-    private int partyId;
-    private String partyName;
-    private int electionId;
+    private int id;
+    private String name;
 }

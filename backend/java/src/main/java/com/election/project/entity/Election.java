@@ -13,6 +13,7 @@ import lombok.*;
 public class Election {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "election_id")
     private int electionId;
 

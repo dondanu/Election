@@ -8,6 +8,6 @@ import lombok.*;
 @AllArgsConstructor
 @ToString
 public class ElectionDTO {
-    private int electionId;
-    private int electionYear;
+    private int id;
+    private int year;
 }

@@ -5,6 +5,7 @@ import Home from './pages/Home';
 import Results from './pages/Results';
 import About from './pages/About';
 import AdminPanel from './pages/AdminPanel';
+import ApiTest from './pages/ApiTest';
 import Footer from './components/Footer';
 
 const App = () => {
@@ -19,6 +20,7 @@ const App = () => {
               <Route path="/results" element={<Results />} />
               <Route path="/about" element={<About />} />
               <Route path="/admin" element={<AdminPanel />} />
+              <Route path="/api-test" element={<ApiTest />} />
             </Routes>
           </main>
           <Footer />

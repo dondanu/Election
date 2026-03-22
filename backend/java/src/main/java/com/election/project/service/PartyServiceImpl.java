@@ -1,9 +1,7 @@
 package com.election.project.service;
 
 import com.election.project.dto.PartyDTO;
-import com.election.project.entity.Election;
 import com.election.project.entity.Party;
-import com.election.project.repository.ElectionRepository;
 import com.election.project.repository.PartyRepository;
 import com.election.project.service.PartyService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,16 +16,18 @@ public class PartyServiceImpl implements PartyService {
     @Autowired
     private PartyRepository partyRepository;
 
-    @Autowired
-    private ElectionRepository electionRepository;
-
     private PartyDTO mapToDTO(Party party) {
-        return new PartyDTO(party.getPartyId(), party.getPartyName(), party.getElection().getElectionId());
+        PartyDTO dto = new PartyDTO();
+        dto.setId(party.getPartyId());
+        dto.setName(party.getPartyName());
+        return dto;
     }
 
     private Party mapToEntity(PartyDTO dto) {
-        Election election = electionRepository.findById(dto.getElectionId()).orElse(null);
-        return new Party(dto.getPartyId(), dto.getPartyName(), election);
+        Party party = new Party();
+        party.setPartyId(dto.getId());
+        party.setPartyName(dto.getName());
+        return party;
     }
 
     @Override
