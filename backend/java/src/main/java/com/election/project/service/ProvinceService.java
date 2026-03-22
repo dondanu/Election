@@ -7,5 +7,6 @@ public interface ProvinceService {
     ProvinceDTO saveProvince(ProvinceDTO provinceDTO);
     List<ProvinceDTO> getAllProvinces();
     ProvinceDTO getProvinceById(int id);
+    ProvinceDTO updateProvince(ProvinceDTO provinceDTO);
     void deleteProvince(int id);
 }

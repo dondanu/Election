@@ -101,7 +101,7 @@ const AdminPanel = () => {
 
 useEffect(() => {
   const fetchProvinces = async () => {
-    const response = await fetch('http://localhost:8080/api/provinces');
+    const response = await fetch('http://localhost:8081/api/provinces');
     if (response.ok) {
       const data = await response.json();
       setProvinces(data);
@@ -113,7 +113,7 @@ useEffect(() => {
 
 
 const handleAddProvince = async (name: string, districtCount: number) => {
-  const response = await fetch('http://localhost:8080/api/provinces', {
+  const response = await fetch('http://localhost:8081/api/provinces', {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({ name, districtCount })
@@ -138,7 +138,7 @@ const handleAddProvince = async (name: string, districtCount: number) => {
 
 const handleSaveProvinceEdit = async () => {
   if (editingProvince && editProvinceForm.name && editProvinceForm.districtCount) {
-    const response = await fetch(`http://localhost:8080/api/provinces/${editingProvince.id}`, {
+    const response = await fetch(`http://localhost:8081/api/provinces/${editingProvince.id}`, {
       method: 'PUT',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(editProvinceForm)
@@ -160,7 +160,7 @@ const handleSaveProvinceEdit = async () => {
   };
 
 const handleDeleteProvince = async (id: number) => {
-  const response = await fetch(`http://localhost:8080/api/provinces/${id}`, {
+  const response = await fetch(`http://localhost:8081/api/provinces/${id}`, {
     method: 'DELETE'
   });
 

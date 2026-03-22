@@ -29,6 +29,11 @@ public class ProvinceController {
     public ProvinceDTO getProvinceById(@PathVariable int id) {
         return provinceService.getProvinceById(id);
     }
+    @PutMapping("/{id}")
+    public ProvinceDTO updateProvince(@PathVariable int id, @RequestBody ProvinceDTO dto) {
+        dto.setId(id);
+        return provinceService.updateProvince(dto);
+    }
 
     @DeleteMapping("/{id}")
     public void deleteProvince(@PathVariable int id) {

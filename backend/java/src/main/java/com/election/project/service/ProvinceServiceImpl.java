@@ -17,19 +17,19 @@ public class ProvinceServiceImpl implements ProvinceService {
     private ProvinceRepository provinceRepository;
 
     private ProvinceDTO mapToDTO(Province province) {
-        return new ProvinceDTO(
-                province.getProvinceId(),
-                province.getProvinceName(),
-                province.getNoOfDistricts()
-        );
+        ProvinceDTO dto = new ProvinceDTO();
+        dto.setProvinceId(province.getProvinceId());
+        dto.setProvinceName(province.getProvinceName());
+        dto.setNoOfDistricts(province.getNoOfDistricts());
+        return dto;
     }
 
     private Province mapToEntity(ProvinceDTO dto) {
-        return new Province(
-                dto.getProvinceId(),
-                dto.getProvinceName(),
-                dto.getNoOfDistricts()
-        );
+        Province province = new Province();
+        province.setProvinceId(dto.getProvinceId());
+        province.setProvinceName(dto.getProvinceName());
+        province.setNoOfDistricts(dto.getNoOfDistricts());
+        return province;
     }
 
     @Override
@@ -50,6 +50,12 @@ public class ProvinceServiceImpl implements ProvinceService {
         return provinceRepository.findById(id)
                 .map(this::mapToDTO)
                 .orElse(null);
+    }
+
+    @Override
+    public ProvinceDTO updateProvince(ProvinceDTO dto) {
+        Province updated = provinceRepository.save(mapToEntity(dto));
+        return mapToDTO(updated);
     }
 
     @Override
