@@ -1,4 +1,4 @@
-# 🇱🇰 Sri Lanka Election System
+# Sri Lanka Election System
 
 A comprehensive full-stack election management system built with **React** (Frontend) and **Spring Boot** (Backend). This system provides complete election administration capabilities including province management, district management, party registration, and real-time results tracking.
 
@@ -114,57 +114,22 @@ The system uses the following main entities:
 
 ### 🏠 Home Page
 ![Home Page](screenshots/home.png)
-*Welcome page with navigation to different sections*
+
 
 ### 🔧 Admin Panel - Province Management
 ![Admin Panel](screenshots/admin.png)
-*Administrative interface for managing provinces*
+
 
 ### 🏘️ District Management
 ![District Management](screenshots/district-management.png)
-*Interface for managing districts within provinces*
+
 
 ### 📊 Election Results
 ![Results Page](screenshots/results.png)
-*Election results display with statistics*
+
 
 ### 🧪 API Testing Tool
 ![API Test](screenshots/api-test.png)
-*Built-in tool for testing API connectivity and functionality*
-
-## 🧪 Testing
-
-The application includes a comprehensive API testing tool accessible at `/api-test`. This tool tests all CRUD operations across all entities and provides detailed feedback on API connectivity.
-
-### Running API Tests
-1. Start both backend and frontend servers
-2. Navigate to `http://localhost:3000/api-test`
-3. Click "Run All API Tests"
-4. View detailed results for each endpoint
-
-## 🏗️ Project Structure
-
-```
-├── backend/
-│   └── java/
-│       ├── src/main/java/com/election/project/
-│       │   ├── controller/     # REST Controllers
-│       │   ├── dto/           # Data Transfer Objects
-│       │   ├── entity/        # JPA Entities
-│       │   ├── repository/    # Data Repositories
-│       │   └── service/       # Business Logic
-│       └── src/main/resources/
-│           └── application.properties
-├── frontend/
-│   └── React/project/
-│       ├── src/
-│       │   ├── components/    # Reusable Components
-│       │   ├── context/       # React Context
-│       │   ├── pages/         # Page Components
-│       │   └── App.tsx
-│       └── package.json
-└── README.md
-```
 
 ## 🔧 Configuration
 
@@ -216,9 +181,7 @@ If this project helped you, consider buying me a coffee! ☕
 ## 📞 Contact
 
 For questions or support, please contact:
-- **Email**: info@elections.gov.lk
-- **Phone**: +94 11 2868441
-
----
+- **Email**: danumg@gmail.com
+- **Phone**: +94 1122334455
 
 **© 2026 Election Commission of Sri Lanka. All rights reserved.**
