@@ -18,17 +18,17 @@ public class ProvinceServiceImpl implements ProvinceService {
 
     private ProvinceDTO mapToDTO(Province province) {
         ProvinceDTO dto = new ProvinceDTO();
-        dto.setProvinceId(province.getProvinceId());
-        dto.setProvinceName(province.getProvinceName());
-        dto.setNoOfDistricts(province.getNoOfDistricts());
+        dto.setId(province.getProvinceId());
+        dto.setName(province.getProvinceName());
+        dto.setDistrictCount(province.getNoOfDistricts());
         return dto;
     }
 
     private Province mapToEntity(ProvinceDTO dto) {
         Province province = new Province();
-        province.setProvinceId(dto.getProvinceId());
-        province.setProvinceName(dto.getProvinceName());
-        province.setNoOfDistricts(dto.getNoOfDistricts());
+        province.setProvinceId(dto.getId());
+        province.setProvinceName(dto.getName());
+        province.setNoOfDistricts(dto.getDistrictCount());
         return province;
     }
 

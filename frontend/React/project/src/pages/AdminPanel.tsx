@@ -101,7 +101,7 @@ const AdminPanel = () => {
 
 useEffect(() => {
   const fetchProvinces = async () => {
-    const response = await fetch('http://localhost:8081/api/provinces');
+    const response = await fetch('http://localhost:8082/api/provinces');
     if (response.ok) {
       const data = await response.json();
       setProvinces(data);
@@ -113,7 +113,14 @@ useEffect(() => {
 
 
 const handleAddProvince = async (name: string, districtCount: number) => {
-  const response = await fetch('http://localhost:8081/api/provinces', {
+  console.log('Adding province:', { name, districtCount });
+  
+  if (!name || !districtCount) {
+    console.error('Name or district count is missing');
+    return;
+  }
+  
+  const response = await fetch('http://localhost:8082/api/provinces', {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({ name, districtCount })
@@ -121,9 +128,10 @@ const handleAddProvince = async (name: string, districtCount: number) => {
 
   if (response.ok) {
     const newProvince = await response.json();
+    console.log('Province added:', newProvince);
     setProvinces((prev) => [...prev, newProvince]);
   } else {
-    console.error('Failed to add province');
+    console.error('Failed to add province:', response.status, response.statusText);
   }
 };
 
@@ -138,7 +146,7 @@ const handleAddProvince = async (name: string, districtCount: number) => {
 
 const handleSaveProvinceEdit = async () => {
   if (editingProvince && editProvinceForm.name && editProvinceForm.districtCount) {
-    const response = await fetch(`http://localhost:8081/api/provinces/${editingProvince.id}`, {
+    const response = await fetch(`http://localhost:8082/api/provinces/${editingProvince.id}`, {
       method: 'PUT',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(editProvinceForm)
@@ -160,7 +168,7 @@ const handleSaveProvinceEdit = async () => {
   };
 
 const handleDeleteProvince = async (id: number) => {
-  const response = await fetch(`http://localhost:8081/api/provinces/${id}`, {
+  const response = await fetch(`http://localhost:8082/api/provinces/${id}`, {
     method: 'DELETE'
   });
 
